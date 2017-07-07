@@ -9,10 +9,9 @@ create table cancelados(
 );
 
 create table cliente(
-	id integer primary key autoincrement not null,
+	id integer primary key not null,
 	nombre text,
-	apellido text,
-	dni text not null
+	apellido text
 );
 
 create table vuelos(
@@ -28,7 +27,7 @@ create table asientos(
 	fecha text,
 	estado text,
 	id_cliente integer,
-	primary key(id_vuelo,f,c),
+	primary key(id_vuelo,f,c, fecha),
 	foreign key (id_cliente) references cliente(id),
 	foreign key (id_vuelo) references vuelos(id)
 );
