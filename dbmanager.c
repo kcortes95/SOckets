@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "sqlite3.h"
+#include "includes/sqlite3.h"
 #include "dbmanager.h"
 
 /* --- CHEQUEO DE EXISTENCIA DE USUARIO --- */
