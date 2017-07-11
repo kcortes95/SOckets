@@ -57,3 +57,5 @@ int deleteUser(int id);
 DBStruct* getAllUsers();
 int callback_allusers(void* data, int argc, char** argv, char** azColName);
 int exec_allusers(DBStruct* dbs, char* sql, char* err, sqlite3* db);
+//
+int checkConnectivity(int rc, char* err, sqlite3* db );

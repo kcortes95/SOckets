@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#define MAX_ARRAY 1201
-#define MAX_STRING 1201
+#define MAX_ARRAY 2000
+#define MAX_STRING 2000
 #define MAX_FIL 50
 #define MAX_COL 6
 #define MAX_LONG_FECHA 11

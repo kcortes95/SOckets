@@ -26,17 +26,7 @@ int exec_checkUser(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id){
 
 	int rc = sqlite3_exec(db, sql_aux, callback, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -78,17 +68,7 @@ int exec_checkVuelo(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id){
 
 	int rc = sqlite3_exec(db, sql_aux, callback, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -131,17 +111,7 @@ int exec_nobook(DBStruct* dbs, char* sql, char* err, sqlite3* db, char* fecha, i
 
 	int rc = sqlite3_exec(db, sql_aux, callback, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -188,17 +158,7 @@ int exec_newbook(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id_pasaje
 
 	int rc = sqlite3_exec(db, sql_aux, callback_newbook, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -241,17 +201,7 @@ int exec_ccancelbook(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id_pa
 
 	int rc = sqlite3_exec(db, sql_aux, callback, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -294,17 +244,7 @@ int exec_cancelbook(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id_pas
 
 	int rc = sqlite3_exec(db, sql_aux, callback, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -318,17 +258,7 @@ int exec_insertcancelbook(DBStruct* dbs, char* sql, char* err, sqlite3* db, int 
 
 	int rc = sqlite3_exec(db, sql_aux, callback, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -385,17 +315,7 @@ int exec_flightstate(DBStruct* dbs, char* sql, char* err, sqlite3* db, char* fec
 
 	int rc = sqlite3_exec(db, sql_aux, callback_flightstate, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -446,17 +366,7 @@ int exec_allflights(DBStruct* dbs, char* sql, char* err, sqlite3* db){
 
 	int rc = sqlite3_exec(db, sql, callback_allflights, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -501,17 +411,7 @@ int exec_newflight(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id, cha
 
 	int rc = sqlite3_exec(db, sql_aux, callback_newbook, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -554,17 +454,7 @@ int exec_delflight(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id){
 
 	int rc = sqlite3_exec(db, sql_aux, callback_newbook, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -610,17 +500,7 @@ int exec_newuser(DBStruct* dbs, char* sql, char* err, sqlite3* db, char* nombre,
 
 	int rc = sqlite3_exec(db, sql_aux, callback_newbook, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -663,17 +543,7 @@ int exec_deluser(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id){
 
 	int rc = sqlite3_exec(db, sql_aux, callback_newbook, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -725,17 +595,7 @@ int exec_allusers(DBStruct* dbs, char* sql, char* err, sqlite3* db){
 
 	int rc = sqlite3_exec(db, sql, callback_allusers, dbs, &err);
 
-	if(rc != SQLITE_OK){
-		fprintf(stderr, "Failed\n");
-		fprintf(stderr, "SQL Error : %s\n",err);
-		sqlite3_free(err);
-		sqlite3_close(db);
-		return DENNIED;
-	}else{
-		return ACCEPTED;
-	}
-
-	return ACCEPTED;
+	return checkConnectivity(rc, err, db);
 
 }
 
@@ -763,3 +623,17 @@ DBStruct* getAllUsers(){
 }
 
 /* --- FIN DEVUELVE TODOS LOS USUARIOS --- */
+
+int checkConnectivity(int rc, char* err, sqlite3* db ){
+	if(rc != SQLITE_OK){
+		fprintf(stderr, "Failed\n");
+		fprintf(stderr, "SQL Error : %s\n",err);
+		sqlite3_free(err);
+		sqlite3_close(db);
+		return DENNIED;
+	}else{
+		return ACCEPTED;
+	}
+
+	return ACCEPTED;
+}

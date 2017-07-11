@@ -25,11 +25,11 @@ int main(int argc, char *argv[]){
 	unsigned short serverPort; // server port number
 	int userId = 0;
 
-	if (argc < 2 || argc > 3){
-		perror("Numero valido de argumentos\n");
+	if (argc != 3){
+		perror("Numero invalido de argumentos\n");
 		exit(1);
 	}
-
+	
 	serverIP = argv[1];
 	serverPort = atoi(argv[2]);
 	srand(time(NULL)); // set up the seed for the random generator
