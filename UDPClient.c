@@ -239,8 +239,10 @@ void displayAllUserData(ClientMessage* clientMsg, int type){
 	printf("Ingrese su numero de IDENTIFICACION UNICO\n");
 	scanf("%d",&id_db);
 
-	printf("Ingrese la FECHA de la reserva [Ej: 01/01/2017]\n");
-	scanf("%d/%d/%d",&dia,&mes,&anio);
+	do { 
+		printf("Ingrese la FECHA de la reserva [Ej: 01/01/2017]\n");
+		scanf("%d/%d/%d",&dia,&mes,&anio);
+	} while ( !(dia >= 1 && dia <= 31) || !(mes>=1 && mes <=12) ); 
 
 	sprintf(fecha_string,"%d/%d/%d",dia,mes,anio);
 
@@ -264,8 +266,10 @@ void displayIdDateUserData(ClientMessage* clientMsg, int type){
 	printf("Ingrese ID del vuelo: \n");
 	scanf("%d", &id);
 
-	printf("Ingrese la FECHA [Ej: 01/01/2017]\n");
-	scanf("%d/%d/%d",&dia,&mes,&anio);
+	do { 
+		printf("Ingrese la FECHA de la reserva [Ej: 01/01/2017]\n");
+		scanf("%d/%d/%d",&dia,&mes,&anio);
+	} while ( !(dia >= 1 && dia <= 31) || !(mes>=1 && mes <=12) ); 
 
 	clientMsg->requestID = rand() % 100 + 1;
 	clientMsg->t = type;
