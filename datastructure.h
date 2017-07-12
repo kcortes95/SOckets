@@ -19,6 +19,7 @@ typedef struct {
 	char fecha[MAX_LONG_FECHA];
 	char from[MAX_STRING];
 	char to[MAX_STRING];
+	char aerolinea[MAX_STRING];
 	int id_db;
 	int fila;
 	int col;

@@ -44,8 +44,8 @@ int callback_allflights(void* data, int argc, char** argv, char** azColName);
 int exec_allflights(DBStruct* dbs, char* sql, char* err, sqlite3* db);
 DBStruct* getAllFlights();
 //
-int insertNewFlight(int id, char* from, char* to);
-int exec_newflight(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id, char* from, char* to);
+int insertNewFlight(int id, char* from, char* to, char* aerolinea);
+int exec_newflight(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id, char* from, char* to, char* aerolinea);
 int callback_accepted(void* data, int argc, char** argv, char** azColName);
 //
 int exec_newuser(DBStruct* dbs, char* sql, char* err, sqlite3* db, char* nombre, char* apellido, int id);

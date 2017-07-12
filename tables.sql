@@ -16,6 +16,7 @@ create table cliente(
 
 create table vuelos(
 	id_vuelo integer primary key not null,
+	aerolinea text,	
 	desde text,
 	hacia text
 );

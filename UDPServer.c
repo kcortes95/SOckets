@@ -157,7 +157,7 @@ int main (int argc, char* argv[]) {
 			case NEWF:
 
 				if (checkVuelo( clientMsg->id_vuelo ) == DENNIED){
-					insertNewFlight(clientMsg->id_vuelo, clientMsg->from, clientMsg->to);			
+					insertNewFlight(clientMsg->id_vuelo, clientMsg->from, clientMsg->to, clientMsg->aerolinea);			
 					serverMsg->t = NEWFOK;
 				}else{
 					serverMsg->t = NEWFNO;

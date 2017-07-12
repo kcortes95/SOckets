@@ -352,7 +352,7 @@ int callback_allflights(void* data, int argc, char** argv, char** azColName){
 	DBStruct* dbs_aux = (DBStruct*) data;
 
 	dbs_aux->ocupados[dbs_aux->tot_elems] = malloc(sizeof(char) * MAX_L);
-	sprintf(dbs_aux->ocupados[dbs_aux->tot_elems],"ID: %s - %s - %s",argv[0], argv[1], argv[2]);
+	sprintf(dbs_aux->ocupados[dbs_aux->tot_elems],"ID: %s - %s - %s - %s",argv[0], argv[1], argv[2], argv[3]);
 	//puts(dbs_aux->ocupados[dbs_aux->tot_elems]);
 	dbs_aux->tot_elems++;
 
@@ -401,11 +401,11 @@ int callback_accepted(void* data, int argc, char** argv, char** azColName){
 	return ACCEPTED;
 }
 
-int exec_newflight(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id, char* from, char* to){
+int exec_newflight(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id, char* from, char* to, char* aerolinea){
 	sql = "insert into vuelos values";
 
 	char* sql_aux = malloc(sizeof(char) * MAX_SQL_QUERY);
-	sprintf(sql_aux,"%s (%d,\"%s\",\"%s\")", sql, id, from, to);
+	sprintf(sql_aux,"%s (%d,\"%s\",\"%s\",\"%s\")", sql, id, aerolinea, from, to);
 
 	puts(sql_aux);
 
@@ -415,7 +415,7 @@ int exec_newflight(DBStruct* dbs, char* sql, char* err, sqlite3* db, int id, cha
 
 }
 
-int insertNewFlight(int id, char* from, char* to){
+int insertNewFlight(int id, char* from, char* to, char* aerolinea){
 	sqlite3* db;
 	int rc = sqlite3_open(DB_NAME,&db);
 	char* err;
@@ -428,7 +428,7 @@ int insertNewFlight(int id, char* from, char* to){
 	}
 
 	DBStruct* dbs = malloc(sizeof(DBStruct));
-	exec_newflight(dbs, sql, err, db, id, from, to);
+	exec_newflight(dbs, sql, err, db, id, from, to, aerolinea);
 
 	sqlite3_close(db);
 

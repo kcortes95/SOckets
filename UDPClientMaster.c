@@ -147,7 +147,6 @@ int main(int argc, char *argv[]){
 				if (serverMsg->requestID == clientMsg->requestID && serverMsg->t == AFOK){ 
 					printf("Estos son los vuelos disponibles:\n");
 					printf("%s\n", serverMsg->msg);
-
 				} else {
 					printf("No estamos en condiciones de mostrarte el resultado.\n");
 				}
@@ -275,11 +274,23 @@ void displayDataNewFlight(ClientMessage* clientMsg, int type){
 	int id;
 	char* from = malloc(sizeof(char) * MAX_INPUT_STRING);
 	char* to = malloc(sizeof(char) * MAX_INPUT_STRING);
+	char* aerolinea = malloc(sizeof(char) * MAX_INPUT_STRING);
 
-	int len_from, len_to = 0;
+	int len_from, len_to, len_aerolinea = 0;
 
 	printf("Ingrese ID del vuelo: \n");
 	scanf("%d", &id);
+
+	do {
+		printf("Ingrese AEROLINEA: \n");
+		scanf("%s", aerolinea);
+
+		len_aerolinea = strlen(aerolinea);
+
+		if(len_aerolinea > MAX_INPUT_STRING)
+			printf("Aerolinea demasiado largo. Maximo permitido: 25 caracteres\n");
+
+	} while(len_aerolinea > MAX_INPUT_STRING);
 
 	do {
 		printf("Ingrese ORIGEN: \n");
@@ -312,6 +323,11 @@ void displayDataNewFlight(ClientMessage* clientMsg, int type){
 
 	memset(clientMsg->to, 0, MAX_INPUT_STRING);
 	memcpy(clientMsg->to, to, strlen(to));
+
+	memset(clientMsg->aerolinea, 0, MAX_INPUT_STRING);
+	memcpy(clientMsg->aerolinea, aerolinea, strlen(aerolinea));
+
+	printf("---------> %s \n",clientMsg->aerolinea);
 
 }
 
